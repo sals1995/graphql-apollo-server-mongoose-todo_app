@@ -19,9 +19,9 @@ const server = new ApolloServer({
 
 const { url } = await startStandaloneServer(server, {
   listen: { port: 4000 },
-  context:({req})=>{
+  context:async({req})=>{
     // console.log('req: ', req);
-     let user= checkAuth(req)
+     let user=await checkAuth(req)
     return {user}
     
   }

@@ -4,6 +4,7 @@ import todoModel from "../../models/todo.js"
 const todoMutation={
    async addTodo(_,{todo},context){
         
+       console.log('context.user.id: ', context.user.id);
         if(!context.user.id){
             throw  new GraphQLError( 'you have not access , please login first' ,{
             extensions:{

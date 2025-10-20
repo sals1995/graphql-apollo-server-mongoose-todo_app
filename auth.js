@@ -6,7 +6,7 @@ export async function checkAuth(req){
     try{
       if (!req.headers.authorization) {
         
-        return null
+        return {}
       }
       else{
         var decoded = await promisify(jwt.verify)(req.headers.authorization,process.env.SECRET)
@@ -17,6 +17,6 @@ export async function checkAuth(req){
       }
     }catch(err){
 
-      return null
+      return {}
     }
 }
